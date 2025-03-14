@@ -20,8 +20,8 @@ else
   echo "Branch $INPUT_BRANCH does not exist, creating..."
 
   git clone "https://$INPUT_USER:$INPUT_TOKEN@$INPUT_GITHUB_DOMAIN/$INPUT_REPO.git" tmp_base
-  cd tmp_base $INPUT_BRANCH
-  git switch --orphan 
+  cd tmp_base 
+  git switch --orphan $INPUT_BRANCH
   cp -r ../$INPUT_FOLDER/* .
   git add .
   git commit -m "Initial commit to $INPUT_BRANCH"
