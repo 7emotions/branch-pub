@@ -1,0 +1,25 @@
+name: 'Branch Publisher'
+description: 'GitHub Action for Branch Publish'
+author: 'Lorenzo Feng <lorenzo.feng@njust.edu.cn>'
+branding:
+  icon: 'cloud'
+  color: 'blue'
+inputs:
+  username:
+    description: 'Username for git push'
+    required: true
+  token:
+    description: 'Personal Access Token for git push'
+    required: true
+  repo:
+    description: 'Repository path'
+    required: true
+  branch:
+    description: 'Branch name'
+    required: true
+  folder:
+    description: 'dist to publish'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
