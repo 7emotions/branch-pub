@@ -3,7 +3,7 @@
 
 [![Release](https://img.shields.io/github/v/release/7emotions/branch-pub?style=flat-square)](https://github.com/7emotions/branch-pub/releases)
 [![License](https://img.shields.io/github/license/7emotions/branch-pub?style=flat-square)](https://github.com/7emotions/branch-pub/blob/main/LICENSE)
-[![Actions Status](https://img.shields.io/github/workflow/status/7emotions/branch-pub/Publish%20to%20AtomGit?style=flat-square)](https://github.com/7emotions/branch-pub/actions)
+[![Open Issues](https://img.shields.io/github/issues-raw/7emotions/branch-pub?style=flat-square)](https://github.com/7emotions/branch-pub/issues)
 
 一个强大的 GitHub Actions，用于将编译产物发布到任意 Git 托管服务的新分支，轻松部署 Pages。
 
