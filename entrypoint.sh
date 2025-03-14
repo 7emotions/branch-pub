@@ -2,36 +2,30 @@
 
 set -e
 
-if [ -z "$INPUT_ARGS" ]; then
-  echo 'Required Args parameter'
-  exit 1
-fi
-
-
 git config --global user.name "Docker Build" &&
 git config --global user.email "docker@example.com"
 
-if git ls-remote --heads "https://$USER:$TOKEN@$GITHUB_DOMAIN/$REPO.git" $BRANCH | grep -q $BRANCH; then
-  echo "Branch $BRANCH exists, deploying..."
+if git ls-remote --heads "https://$INPUT_USER:$INPUT_TOKEN@$INPUT_GITHUB_DOMAIN/$INPUT_REPO.git" $INPUT_BRANCH | grep -q $INPUT_BRANCH; then
+  echo "Branch $INPUT_BRANCH exists, deploying..."
 
-  git clone "https://$USER:$TOKEN@$GITHUB_DOMAIN/$REPO.git" --branch $BRANCH --single-branch tmp
+  git clone "https://$INPUT_USER:$INPUT_TOKEN@$INPUT_GITHUB_DOMAIN/$INPUT_REPO.git" --branch $INPUT_BRANCH --single-branch tmp
   rm -rf tmp/*
-  cp -r $FOLDER/* tmp/
+  cp -r $INPUT_FOLDER/* tmp/
   cd tmp
   git add .
   git commit -m "Deploy to Pages from Dockerfile"
-  git push --force "https://$USER:$TOKEN@$GITHUB_DOMAIN/$REPO.git" $BRANCH
+  git push --force "https://$INPUT_USER:$INPUT_TOKEN@$INPUT_GITHUB_DOMAIN/$INPUT_REPO.git" $INPUT_BRANCH
 
 else
-  echo "Branch $BRANCH does not exist, creating..."
+  echo "Branch $INPUT_BRANCH does not exist, creating..."
 
-  git clone "https://$USER:$TOKEN@$GITHUB_DOMAIN/$REPO.git" tmp_base
-  cd tmp_base $BRANCH
+  git clone "https://$INPUT_USER:$INPUT_TOKEN@$INPUT_GITHUB_DOMAIN/$INPUT_REPO.git" tmp_base
+  cd tmp_base $INPUT_BRANCH
   git switch --orphan 
-  cp -r ../$FOLDER/* .
+  cp -r ../$INPUT_FOLDER/* .
   git add .
-  git commit -m "Initial commit to $BRANCH"
-  git push --set-upstream "https://$USER:$TOKEN@$GITHUB_DOMAIN/$REPO.git" $BRANCH
+  git commit -m "Initial commit to $INPUT_BRANCH"
+  git push --set-upstream "https://$INPUT_USER:$INPUT_TOKEN@$INPUT_GITHUB_DOMAIN/$INPUT_REPO.git" $INPUT_BRANCH
 fi
 
 echo "Deployment completed."
