@@ -90,5 +90,5 @@ jobs:
 
 ## 联系
 
-[mail](mailto://lorenzo.feng@njust.edu.cn)
+[Lorenzo Feng](mailto://lorenzo.feng@njust.edu.cn)
 
