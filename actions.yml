@@ -5,24 +5,24 @@ branding:
   icon: 'cloud'
   color: 'blue'
 inputs:
-  USER:
+  user:
     description: 'Username for git push'
     required: true
-  TOKEN:
+  token:
     description: 'Personal Access Token for git push'
     required: true
-  REPO:
+  repo:
     description: 'Repository path'
     required: true
-  BRANCH:
+  branch:
     description: 'Branch name'
     required: false
     default: "pages"
-  FOLDER:
+  folder:
     description: 'Dist to publish'
     required: false
     default: "dist"
-  GITHUB_DOMAIN:
+  github_domain:
     description: 'Domain of git'
     required: false
     default: "github.com"
