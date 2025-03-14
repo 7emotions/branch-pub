@@ -5,21 +5,27 @@ branding:
   icon: 'cloud'
   color: 'blue'
 inputs:
-  username:
+  USER:
     description: 'Username for git push'
     required: true
-  token:
+  TOKEN:
     description: 'Personal Access Token for git push'
     required: true
-  repo:
+  REPO:
     description: 'Repository path'
     required: true
-  branch:
+  BRANCH:
     description: 'Branch name'
-    required: true
-  folder:
-    description: 'dist to publish'
-    required: true
+    required: false
+    default: "pages"
+  FOLDER:
+    description: 'Dist to publish'
+    required: false
+    default: "dist"
+  GITHUB_DOMAIN:
+    description: 'Domain of git'
+    required: false
+    default: "github.com"
 runs:
   using: 'docker'
   image: 'Dockerfile'
